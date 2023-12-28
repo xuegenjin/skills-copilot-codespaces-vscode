@@ -1,17 +1,10 @@
 //create a simple web server that responds with "Hello World" to all requests, 
-//and is listening on port 9999
-// http://localhost:9999
-
-const http = require('http');
-const port = 9999;
-
-const server = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain'); //text/html
-    res.end('Hello World');
+//and is listening on port 8088
+var http = require('http');
+var server = http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/html'});
+  res.write('<html><body>Hello World!</body></html>');
+  res.end();
 });
-
-server.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}/`);
-});
-
+server.listen(8088);
+console.log('Server is listening on port 8088');
