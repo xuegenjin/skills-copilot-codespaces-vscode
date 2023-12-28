@@ -1,10 +1,14 @@
-//create a simple web server that responds with "Hello World" to all requests, 
-//and is listening on port 8088
-var http = require('http');
-var server = http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  res.write('<html><body>Hello World!</body></html>');
-  res.end();
+// Create web server
+const express = require('express');
+const app = express();
+
+// Create a route handler for GET requests to /greeting
+app.get('/greeting', function(req, res) {
+  res.send('Hello World!');
 });
-server.listen(8088);
-console.log('Server is listening on port 8088');
+
+// Start the server listening on port 3000
+app.listen(3000, function() {
+  console.log('Server is listening on port 3000. Ready to accept requests!');
+});
+
